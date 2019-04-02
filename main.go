@@ -30,7 +30,7 @@ func (a *App) update() {
 func (a *App) UpdateTable() {
 	for i, addr := range a.s.Addresses {
 
-		addr.Active = time.Now().Add(-1000 * time.Millisecond).Before(addr.Time)
+		addr.Active = time.Now().Add(-6000 * time.Millisecond).Before(addr.Time)
 
 		activeColor := tcell.ColorGreen
 
