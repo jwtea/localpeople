@@ -201,12 +201,13 @@ func (s *Scan) readARP(handle *pcap.Handle, iface *net.Interface, stop chan stru
 			if len(s.Addresses) == 0 {
 				s.Addresses = append(s.Addresses, &Address{IP: ip,
 					MAC: mac, Active: true, Time: time})
+			} else {
+				if found == false {
+					s.Addresses = append(s.Addresses, &Address{IP: ip,
+						MAC: mac, Active: true, Time: time})
+				}
 			}
 
-			if found == false {
-				s.Addresses = append(s.Addresses, &Address{IP: ip,
-					MAC: mac, Active: true, Time: time})
-			}
 		}
 	}
 }
